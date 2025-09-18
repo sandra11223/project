@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     .card {
+      border: none;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+      width:  100%;
+      }
+    .card img {
+      height: 50px;
+      object-fit: contain;
+        }
+
+    
+   /* .product-card {
+      transition: transform 0.3s;
+       margin-bottom: 20px;
+      }
+
+.product-card img {
+       transition: transform 0.3s, box-shadow 0.3s ;
+       border-radius: 10px;
+      }
+
+.product-card img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}  */
+
+    .category-card::after 
+    {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      transition: background 0.3s ;
+    }
+
+    .category-card:hover
+     {
+      transform: scale(1.03);
+      border: 2px solid #9b59b6;
+    }
+    .category-card:hover::after
+       {
+      background: rgba(0, 0, 0, 0.2);
+       } 
+     .category-text {
+      position: absolute;
+      left: 15px;
+      bottom: 20px;
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      color: #fff;
+      font-weight: bold;
+      font-size: 1.7rem;
+      letter-spacing: 1px;
+      z-index: 2;
+    }
+  .category-card {
+    transition: transform 0.3s ease;
+  } 
+   .circle-card {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 2px solid #eee;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: auto;
+      background: #fff;
+      transition: transform 0.3s;
+    }
+    
+    .circle-card img {
+      max-width: 200px;
+      max-height: 120px;
+    }
+    .category-name {
+      margin-top: 20px;
+      font-weight: 500;
+    }
+    .product-card img {
+    transition: border-radius 0.3s ease;
+  }
+
+.perf-section {
+      background: #c9f2fa;
+      border-radius: 15px;
+      padding: 40px;
+    }
+    .perf-img {
+      max-width: 100%;
+      /* border-radius: 10px; */
+      display: block;
+      border: none;
+     
+    }
+    .perf-custom {
+      background-color: #0d6efd;
+      color: white;
+      font-weight: 700;
+      padding:  20px;
+    }
+    .shape-image {
+            width: 350px;
+            height: 350px;
+            border-top-left-radius: 80px;
+            border-bottom-right-radius: 80px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.5s ease-in-out;
+            cursor: pointer;
+            
+        }
+
+         .shape-image:hover {
+            border-top-right-radius: 30%;
+            border-bottom-left-radius: 30%;
+            
+            border-top-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+            
+            transform: scale(1.1);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+      .scroll-container {
+           display: flex;
+           overflow-x: auto;
+           gap: 2rem;
+           scroll-behavior: smooth;
+           padding: 0 3rem;
+           }
+
+        .scroll-container::-webkit-scrollbar {
+         display: none; 
+        }
+
+      .scroll-container {
+          -ms-overflow-style: none;  
+           scrollbar-width: none;     
+}
+    
+
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
+    <div class="container-fluid">
+<h6 class="text-center text-lg-start  fs-6"
+    style="color: rgb(13,59,102); margin-left: 100px; margin-top: 30px; margin-bottom: 10px; 
+           font-size: clamp(1rem, 2.5vw, 1.3rem);">
+  <b>Fragranzia   </b>
+</h6>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse w-100 px-2 pe-5" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 w-100 justify-content-lg-end flex-wrap align-items-center">
+                <li class="nav-item">
+                    <a class="nav-link active text-center fw-bold "  style="font-size: small;color: rgb(17, 57, 95); margin-left:0 !important;font-family: 'Poppins', sans-serif;margin-top: 30px;margin-bottom: 10px;">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active text-center" href="products.html" style="font-size: small;font-family: 'Poppins', sans-serif;margin-left:15px;margin-top: 30px;margin-bottom: 10px;">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active text-center" href="#" style="font-size: small;font-family: 'Poppins', sans-serif;margin-left:15px;margin-top: 30px;margin-bottom: 10px;">Gifting</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active text-center" href="about.html" style="font-size: small; font-family: 'Poppins', sans-serif;margin-left:15px;margin-top: 30px;margin-bottom: 10px;">About</a>
+                </li>
+
+                <div class="d-flex align-items-center flex-wrap ms-lg-3 mt-2 mt-lg-0">
+                    <form class="me-3 mb-2 mb-lg-0 pt-3 px-2" role="search">
+                        <div class="input-group" style="max-width: 200px;">
+                            <span class="input-group-text bg-white rounded-start-pill py-1 px-2">
+                                <i class="fa-solid fa-magnifying-glass text-secondary"></i>
+                            </span>
+                            <input type="search" class="form-control border-start-0 rounded-end-pill py-1 px-2" placeholder="Search Here" aria-label="Search">
+                        </div>
+                    </form>
+
+                    <div class="d-flex gap-2 flex-wrap pt-3 px-2 pe-2">
+                        <div class="shadow rounded-circle d-flex align-items-center justify-content-center" style="background-color: white; width: 32px; height: 32px;">
+                            <a href="checkout.html"><i class="fa-solid fa-cart-shopping text-dark"></i></a>
+                        </div>
+                        <div class="shadow rounded-circle d-flex align-items-center justify-content-center" style="background-color: white; width: 32px; height: 32px;">
+                            <i class="fa-solid fa-bell text-dark"></i>
+                        </div>
+                        <div class="shadow rounded-circle d-flex align-items-center justify-content-center" style="background-color: white; width: 32px; height: 32px;">
+                            <a href="signup.html"><i class="fa-solid fa-user text-dark"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+<h5 style="background-color: rgb(12, 51, 87);color: white;height: 30px;padding-top: 7px;font-size: small;text-align: center;">ENJOY FESTIVE DISCOUNTS! FREE SHIPPING ABOVE 999 !</h5>
+<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel" style="position: relative;">
+    <div class="carousel-inner">
+      <div class="carousel-item active" style="background-color: rgb(11, 60, 93); position: relative; background-image: url(SL-020520-27660-18\ 1.png);background-size: cover;background-position: center;background-repeat: no-repeat;border-radius: 20px;width:1300px;margin-left: 200px;height: 340px;padding: 40px;max-width:  1700px;">
+
+        <div class="container py-5 position-relative">
+          <div class="row align-items-center">
+            <div class="col-md-6">
+              <h3 class="fw-bold" style="color: white;">Discover perfumes that<br>celebrate individuality</h3>
+              <p class="mt-3" style="color: white;">Every moment with an unforgettable essence.</p>
+              <button type="button" class="btn btn-light" style="width: 200px;">Shop Now</button>
+            </div>
+            <div class="col-md-6">
+               <div style="position: absolute; top: 50%; left: 50%; ">
+                <img src="2bcb4f47-c0e3-458f-8ace-4ad9ddaccd55 1.png" style="position: absolute; margin-top: -150px;margin-bottom: 40px; margin-left: 200px; width: 310px; transform: rotate(-1deg);">
+                <img src="2bcb4f47-c0e3-458f-8ace-4ad9ddaccd55 2.png" style="position: absolute; margin-top: -110px;margin-bottom: 60px; margin-left: 330px; width: 250px; transform: rotate(-1deg);">
+               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item" style="background-color: rgb(212, 160, 23);position: relative;background-image: url(SL-020520-27660-18\ 1.png);background-size: cover;background-position: center;background-repeat: no-repeat;border-radius: 20px;width: 1300px;margin-left: 200px;height: 340px;padding: 40px;max-width: 1700px;">
+        <div class="container py-5 position-relative">
+          <div class="row align-items-center">
+            <div class="col-md-6">
+                <h3 class="fw-bold" style="color: white; font-family: sans-serif;" >Discover perfumes that<br>celebrate individuality</h3>
+              <p class="mt-3" style="color: white;">Every moment with an unforgettable essence.</p>
+              <button type="button" class="btn btn-light" style="width: 200px;">Shop Now</button>
+            </div>
+               <div style="position: absolute; top: 50%; left: 50%; ">
+                <img src="2bcb4f47-c0e3-458f-8ace-4ad9ddaccd55 1 (1).png" style="position: absolute; margin-top: -150px;margin-bottom: 40px; margin-left: 200px; width: 310px; transform: rotate(-1deg);">
+                <img src="2bcb4f47-c0e3-458f-8ace-4ad9ddaccd55 2 (1).png" style="position: absolute; margin-top: -110px;margin-bottom: 60px; margin-left: 330px; width: 250px; transform: rotate(-1deg);">
+               </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="carousel-indicators mb-4">
+      <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="1" aria-label="Slide 2"></button>
+   </div>
+     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+<div class="container my-3">
+  <div class="row g-4">
+    <div class="col-md-4">
+     <div class="card h-100 text-center p-3" style="background-color: #e7e7e7; border-radius: 20px;">
+        <div class="card-body d-flex align-items-center justify-content-between" style="height: 100%;">
+          <div class="text-start">
+            <h5 class="card-title fw-bold">Unlock Exclusive<br>Offers.</h5>
+            <p class="card-text">Discover special deals tailored just for you!</p>
+          </div>
+          <div class="ms-3">
+            <img src="front-view-orange-perfume-inside-glass-isolated-white-floor_140725-11649 1.png" class="img-fluid" alt="Perfume" style="max-width: 100px;height: auto; transform: scale(1.6)">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card h-80 text-center p-3" style="background-color: #ececec;border-radius: 20px;">
+        <div class="card-body">
+          <h5 class="card-title fw-bold">Gift a Scents to your loved one.</h5>
+          <p class="card-text">Make your love more beautiful!</p>
+          <img src="perfume2.png" class="img-fluid" alt="Perfume Gift"style="max-width: 100px;height: auto; transform: scale(1.9)">
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card h-80 text-center p-3" style="background-color:#eae5e8;border-radius: 20px;">
+        <div class="card-body">
+          <h5 class="card-title fw-bold">Luxury Scents<br>Starting at ₹4,000</h5>
+         <img src="shop.png" class="img-fluid mb-2" alt="Luxury Perfume 1"style="max-width: 80px;height: auto; transform: scale(1.9)">
+          <img src="perf3.png" class="img-fluid mb-3" alt="Luxury Perfume 2"style="max-width: 80px;height: auto; transform: scale(1.9)">
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="container my-5">
+  <div class="card shadow-lg border-0" style="border-radius: 20px;">
+    <div class="card-body">
+      <div class="row text-start">
+        <div class="col-md-4 mb-3 mb-md-0">
+          <div class="d-flex align-items-start">
+            <img src="hugeicons_delivery-truck-02.png">
+            <div>
+              <h5 class="mt-1">Fast & Reliable Delivery</h5>
+              <p class="text-muted">Get your orders delivered on<br>time, every time.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3 mb-md-0">
+          <div class="d-flex align-items-start">
+            <img src="tdesign_secured.png">
+            <i class="bi bi-shield-check fs-1 text-success me-3"></i>
+            <div>
+              <h5 class="mt-1">Secure Payments</h5>
+              <p class="text-muted">Shop with confidence using our<br>encrypted payment gateways.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="d-flex align-items-start">
+            <img src="Vector.png">
+            <div>
+              <h5 class="mt-1">24/7 Customer Support</h5>
+              <p class="text-muted">We’re here to assist you anytime,<br>anywhere.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<h3 style="padding: 100px;font-weight: bold;color: #1d293e;">Featured Collections</h3>
+<div class="container-fluid">
+  <div id="scrollWrapper" 
+       class="d-flex flex-nowrap flex-sm-wrap flex-md-nowrap overflow-auto px-3" 
+       style="gap: 2rem; scroll-behavior: smooth;">
+       
+    <div class="scroll-container d-flex flex-wrap flex-md-nowrap">
+      
+      <div class="col-auto text-start px-4 position-relative" style="min-width: 220px;"> 
+        <img src="Group 1 (3).png" class="position-absolute top-0 start-0 m-3 z-1 img-fluid" 
+             style="width: 10px;padding-left: 40px;" alt="New">
+        <img src="AUTOGRAPH_EDP_100ML_1 2.png" class="shape-image w-100 img-fluid">
+        <p class="text-start pt-4 mb-2 fs-6 fw-bold">autograph eau de parfum 100ml <br> for Men</p>
+        <p><span class="fw-bold fs-5">RS 999</span> 
+           <span class="text-decoration-line-through text-muted fs-6">RS 2000</span></p>
+        <button class="btn w-100 mb-3" 
+                style="background-color: rgba(0, 53, 75, 1);color: white;">
+          Add to Cart
+        </button>
+      </div>
+
+      <div class="col-auto text-start px-4 position-relative" style="min-width: 220px;"> 
+        <img src="AUTOGRAPH_EDP_100ML_1 2 (2).png" class="shape-image w-100 img-fluid" style="width: 180px;padding-left: 40px;" alt="New">
+        <img src="Group 1 (3).png" class="position-absolute top-0 start-0 m-3 z-1 img-fluid" 
+             style="width: 140px;padding-left: 20px;" alt="New">
+        <p class="text-start pt-4 mb-2 fs-6 fw-bold">Royal eau de parfum 100ml <br> for Men</p>
+        <p><span class="fw-bold fs-5">RS 650</span> 
+           <span class="text-decoration-line-through text-muted fs-6">RS 2000</span></p>
+        <button class="btn w-100 mb-3" 
+                style="background-color: rgba(0, 53, 75, 1);color: white;">
+          Add to Cart
+        </button>
+      </div>
+
+      <div class="col-auto text-start px-4 position-relative" style="min-width: 220px;"> 
+        <img src="Group 1 (3).png" class="position-absolute top-0 start-0 m-3 z-1 img-fluid" 
+             style="width: 140px;padding-left: 20px;" alt="New">
+        <img src="AUTOGRAPH_EDP_100ML_1 2 (3).png" class="shape-image w-100 img-fluid">
+        <p class="text-start pt-4 mb-2 fs-6 fw-bold">Royal eau de parfum 100ml <br> for Men</p>
+        <p><span class="fw-bold fs-5">RS 650</span> 
+           <span class="text-decoration-line-through text-muted fs-6">RS 2000</span></p>
+        <button class="btn w-100 mb-3" 
+                style="background-color: rgba(0, 53, 75, 1);color: white;">
+          Add to Cart
+        </button>
+      </div>
+
+      <div class="col-auto text-start px-4 position-relative" style="min-width: 220px;"> 
+        <img src="Group 1 (3).png" class="position-absolute top-0 start-0 m-3 z-1 img-fluid" 
+             style="width: 140px;padding-left: 20px;" alt="New">
+        <img src="AUTOGRAPH_EDP_100ML_1 2 (13).png" class="shape-image w-100 img-fluid">
+        <p class="text-start pt-4 mb-2 fs-6 fw-bold">Kyros Eau De Parfum 100ml<br> for Men</p>
+        <p><span class="fw-bold fs-5">RS 899</span> 
+           <span class="text-decoration-line-through text-muted fs-6">RS 2000</span></p>
+        <button class="btn w-100 mb-3" 
+                style="background-color: rgba(0, 53, 75, 1);color: white;">
+          Add to Cart
+        </button>
+      </div>
+
+      <div class="col-auto text-start px-4 position-relative" style="min-width: 220px;"> 
+        <img src="Group 1 (3).png" class="position-absolute top-0 start-0 m-3 z-1 img-fluid" 
+             style="width: 140px;padding-left: 20px;" alt="New">
+        <img src="AUTOGRAPH_EDP_100ML_1 2 (6).png" class="shape-image w-100 img-fluid">
+        <p class="text-start pt-4 mb-2 fs-6 fw-bold">autograph eau de parfum 100ml<br> for Men</p>
+        <p><span class="fw-bold fs-5">RS 650</span> 
+           <span class="text-decoration-line-through text-muted fs-6">RS 2000</span></p>
+        <button class="btn w-100 mb-3" 
+                style="background-color: rgba(0, 53, 75, 1);color: white;">
+          Add to Cart
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+  <br><br><br>
+  <h3 style="text-align: center;font-weight: 400;">"It's an art.A craft.A science.At Fragranzia,we're in <br>the business of creating memories that last forever<br> through our fragrances."</h3><br>
+  <div class="container py-5">
+  <div class="row g-3">
+
+   
+    <div class="col-md-4">
+      <div class="category-card" style="background-image: url(front-view-expensive-perfume-light-table-scent\ 1.png);position: relative;height: 600px;border-radius: 12px; transition: all 0.3s;display: flex;align-items: center;justify-content: center;background-size: cover;background-position: center;">
+        <div class="category-text">New Arrivals</div>
+      </div>
+    </div>
+
+    
+    <div class="col-md-4">
+      <div class="category-card" style="background-image: url(caucasian-woman-applying-perfume-her-neck\ 1.png);position: relative;height: 600px; border-radius: 12px; transition: all 0.3;display: flex; align-items: center;justify-content: center;background-size: cover; background-position: center;">
+        <div class="category-text">Limited Edition</div>
+      </div>
+    </div>
+
+    <div class="col-md-4"> 
+      <div class="category-card" style="background-image: url(small-perfume-bottle-with-black-lid-decorated-with-cinnamon-stick\ 1.png);position: relative;height: 600px;border-radius: 12px;transition: all 0.3;display: flex;align-items: center;justify-content: center;background-size: cover; background-position: center;">
+        <div class="category-text">Best Sellers</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<br><br>
+<div class="d-flex justify-content-between align-items-center px-4 py-5">
+  <h3 style="color: #1d293e; font-weight: 700; margin: 0;padding: 150px;">Explore Categories</h3>
+  <p style="margin: 0; color: #00354B; font-weight: 600;">See all</p>
+</div>
+<div class="container text-center py-5">
+  <div class="row justify-content-center g-4">
+    
+    <div class="col-6 col-md-2">
+      <div class="circle-card">
+        <img src="SONGOFOUD_EDP_75ML_1 1.png" alt="Eau De Parfum">
+      </div>
+      <p class="category-name">Eau De Parfum</p>
+    </div>
+    
+    <div class="col-6 col-md-2">
+      <div class="circle-card">
+        <img src="AURUM_CONCENTRATED_10ML_1 1.png" alt="Concentrated">
+      </div>
+      <p class="category-name">Concentrated</p>
+    </div>
+    
+    <div class="col-6 col-md-2">
+      <div class="circle-card">
+        <img src="FACIN8_EDP_100ML_1.png" alt="Deodorants">
+      </div>
+      <p class="category-name">Deodorants</p>
+    </div>
+    
+    <div class="col-6 col-md-2">
+      <div class="circle-card">
+        <img src="OUDMUSK_EDP_100ML_1.png" alt="Body Mist">
+      </div>
+      <p class="category-name">Body Mist</p>
+    </div>
+    <div class="col-6 col-md-2">
+      <div class="circle-card">
+        <img src="Mizyaan_ClasscOud_CP.png" alt="Body Mist">
+      </div>
+      <p class="category-name">Body Mist</p>
+    </div>
+  </div>
+</div>
+<div class="container mt-4 pb-4 pt-5">
+  <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
+    <h5 class="mb-0 fs-3 fw-bold">Offer Zone</h5>
+    <div class="mt-3 mt-md-0">
+      <button class="btn btn-light rounded-circle shadow me-2">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button class="btn btn-light rounded-circle shadow">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div id="scrollWrapper" 
+     class="d-flex flex-wrap flex-md-nowrap overflow-auto px-3" 
+     style="gap: 2rem; scroll-behavior: smooth;">
+  <div class="scroll-container d-flex flex-wrap flex-md-nowrap">
+
+    <div class="col-auto text-start px-4 position-relative" style="min-width: 220px;"> 
+      <img src="AUTOGRAPH_EDP_100ML_1 2 (13).png" class="shape-image w-100 img-fluid">
+      <p class="text-start pt-4 mb-2 fs-6 fw-bold">Royal eau de parfum 100ml <br> for Men</p>
+      <p><span class="fw-bold fs-5">RS 650</span> 
+         <span class="text-decoration-line-through text-muted fs-6">RS 1400</span></p>
+      <button class="btn w-100 mb-3" 
+              style="background-color: rgba(0, 53, 75, 1);color: white;">Add to Cart</button>
+    </div>
+
+    <div class="col-auto text-start px-4 position-relative" style="min-width: 220px;"> 
+      <img src="AUTOGRAPH_EDP_100ML_1 2 (2).png" class="shape-image w-100 img-fluid">
+      <p class="text-start pt-4 mb-2 fs-6 fw-bold">Kyros Eau De Parfum 100ml <br> for Men</p>
+      <p><span class="fw-bold fs-5">RS 899</span> 
+         <span class="text-decoration-line-through text-muted fs-6">RS 2000</span></p>
+      <button class="btn w-100 mb-3" 
+              style="background-color: rgba(0, 53, 75, 1);color: white;">Add to Cart</button>
+    </div>
+
+    <div class="col-auto text-start px-4 position-relative" style="min-width: 220px;"> 
+      <img src="AUTOGRAPH_EDP_100ML_1 2 (5).png" class="shape-image w-100 img-fluid">
+      <p class="text-start pt-4 mb-2 fs-6 fw-bold">Royal eau de parfum 100ml <br> for Men</p>
+      <p><span class="fw-bold fs-5">RS 650</span> 
+         <span class="text-decoration-line-through text-muted fs-6">RS 1400</span></p>
+      <button class="btn w-100 mb-3" 
+              style="background-color: rgba(0, 53, 75, 1);color: white;">Add to Cart</button>
+    </div>
+
+    <div class="col-auto text-start px-4 position-relative" style="min-width: 220px;"> 
+      <img src="AUTOGRAPH_EDP_100ML_1 2 (3).png" class="shape-image w-100 img-fluid">
+      <p class="text-start pt-4 mb-2 fs-6 fw-bold">autograph eau de parfum 100ml<br> for Men</p>
+      <p><span class="fw-bold fs-5">RS 999</span> 
+         <span class="text-decoration-line-through text-muted fs-6">RS 2241</span></p>
+      <button class="btn w-100 mb-3" 
+              style="background-color: rgba(0, 53, 75, 1);color: white;">Add to Cart</button>
+    </div>
+
+    <div class="col-auto text-start px-4 position-relative" style="min-width: 220px;"> 
+      <img src="AUTOGRAPH_EDP_100ML_1 2.png" class="shape-image w-100 img-fluid">
+      <p class="text-start pt-4 mb-2 fs-6 fw-bold">autograph eau de parfum 100ml<br> for Men</p>
+      <p><span class="fw-bold fs-5">RS 650</span> 
+         <span class="text-decoration-line-through text-muted fs-6">RS 1400</span></p>
+      <button class="btn w-100 mb-3" 
+              style="background-color: rgba(0, 53, 75, 1);color: white;">Add to Cart</button>
+    </div>
+
+  </div>
+</div>
+    <div class="py-5 mt-5" style="background-color: #8BB8BE;">
+    <div class="container">
+        <div class="row">
+            <div class="col md-3 mb-4">
+                <h2 class="fw-bold fs-3" style="color: #00354B;">Fragranzia</h2>
+            </div>
+
+            <div class="col md-3 mb-4 ms-4" style="margin-right: 10px;">
+                <h6 class="fw-bold">Pages</h6>
+                <ul class="list-unstyled">
+                    <li><a href="index.html" class="text-decoration-none text-muted">Home</a></li>
+                    <li><a href="#" class="text-decoration-none text-muted">Products</a></li>
+                    <li><a href="#" class="text-decoration-none text-muted">Gifting</a></li>
+                    <li><a href="about.html" class="text-decoration-none text-muted">About</a></li>
+                </ul>
+            </div>
+
+            <div class="col md-2 mb-3 ms-4" style="margin-right: 10px;">
+                <h6 class="fw-bold">Quick links</h6>
+                <ul class="list-unstyled">
+                    <li><a href="i" class="text-decoration-none text-muted">Privacy policy</a></li>
+                    <li><a href="#" class="text-decoration-none text-muted">Terms & conditions</a></li>
+                    <li><a href="#" class="text-decoration-none text-muted">FAQ</a></li>
+                    <li><a href="#" class="text-decoration-none text-muted">Customer service</a></li>
+                </ul>
+            </div>
+
+            <div class="col md-3 mb-4 ms-4">
+                <p class="mb-2 small text-muted"><i class="fa-regular fa-envelope"></i>fragranzia@gmail.com</p>
+                <p class="mb-2 small text-muted"><i class="fa-solid fa-phone"></i>+91 9876543210</p>
+                <h6 class="fw-bold">Social Media</h6>
+                <div class="d-flex gap-3 fs-5 mb-3" style="line-height: 1.3;">
+                    <a href="#" class="text-muted"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="text-muted"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="text-muted"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#" class="text-muted"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+<hr class="mt-4" style="border: none; border-top: 4px solid #000000;">
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center flex-wrap small text-muted">
+            <div class="text-start small text-muted d-flex">
+                <a href="#" class="text-decoration-none text-muted me-2">Web Accessibility</a>|
+                <a href="#" class="text-decoration-none text-muted me-2">Terms of use</a>|
+                <a href="#" class="text-decoration-none text-muted me-2">Privacy statement</a>|
+                <a href="#" class="text-decoration-none text-muted me-2">Contact us</a>
+            </div>
+            <span>@ 2025 Fragranza company. All rights reserved.</span>
+        </div>
+    </div>
+</div>
+
+
+</body >
+</html>
